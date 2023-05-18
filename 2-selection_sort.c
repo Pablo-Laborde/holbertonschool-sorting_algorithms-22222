@@ -15,15 +15,14 @@ void selection_sort(int *array, size_t size)
 		{
 			k = i;
 			for (j = (i + 1); j < size; j++)
-			{
 				if (array[j] < array[k])
-				{
 					k = j;
-					a = array[i];
-					array[i] = array[k];
-					array[k] = a;
-					print_array(array, size);
-				}
+			if (k != i)
+			{
+				a = array[i];
+				array[i] = array[k];
+				array[k] = a;
+				print_array(array, size);
 			}
 		}
 }
