@@ -40,6 +40,7 @@ void insertion_sort_list(listint_t **list)
  * change- changes two elemnts of a list
  * @a: first element
  * @b: second element
+ * @list: list
  * Return: void
  */
 void change(listint_t *a, listint_t *b, listint_t **list)
