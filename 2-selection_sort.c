@@ -1,29 +1,32 @@
 #include "sort.h"
 
 /**
- * selection_sort- sorts
- * @array: array
- * @size: size
- * Return: void
+ * selection_sort- Sorts an array using selection sort.
+ * @array: array to be sorted
+ * @size: size of the array
  */
 void selection_sort(int *array, size_t size)
 {
 	int a;
 	size_t i, pos;
 
-	if (size > 1)
+	if (size < 2 || array == NULL)
+		return;
+
+	for (pos = 0; pos < size - 1; pos++)
 	{
-		for (pos = 0; pos < size; pos++)
+		a = array[pos];/* Assume the current element is the minimum */
+
+		for (i = pos + 1; i < size; i++)/*find the min elemnt*/
 		{
-			for (i = pos; i < size; i++)
+			if (array[i] < a)
 			{
-				if (array[i] < array[pos])
-				{
-					a = array[i];
-					array[i] = array[pos];
-				}
+				a = array[i];/*update the min element index*/
+				array[i] = array[pos];
 			}
-			array[pos] = a;
 		}
+
+		array[pos] = a;/*swap element whit the min*/
+		print_array(array, size);/*print the array*/
 	}
 }
