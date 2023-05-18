@@ -19,13 +19,16 @@ void insertion_sort_list(listint_t **list)
 				a = b;
 				b = b->next;
 			}
-			c = b->next;
-			while (a && (a->n > b->n))
+			if (b)
 			{
-				change(a, b);
-				a = b->prev;
+				c = b->next;
+				while (a && (a->n > b->n))
+				{
+					change(a, b);
+					a = b->prev;
+				}
+				b = c;
 			}
-			b = c;
 		} while (b);
 	}
 }
