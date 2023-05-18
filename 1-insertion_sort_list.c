@@ -25,6 +25,7 @@ void insertion_sort_list(listint_t **list)
 				while (a && (a->n > b->n))
 				{
 					change(a, b);
+					print_list(*list);
 					a = b->prev;
 				}
 				b = c;
