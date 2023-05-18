@@ -9,21 +9,18 @@
 void selection_sort(int *array, size_t size)
 {
 	int a;
-	size_t i, pos;
+	size_t i, j, k;
 
 	if (size > 1)
 	{
-		for (pos = 0; pos < size; pos++)
+		for (i = 0, k = 0; i < (size - 1); i++)
 		{
-			for (i = pos; i < size; i++)
+			for (j = (i + 1); j < size; j++)
 			{
-				if (array[i] < array[pos])
-				{
-					a = array[i];
-					array[i] = array[pos];
-				}
+				if (array[j] < array[i])
+					k = j;
+				print_array(array, size);
 			}
-			array[pos] = a;
 		}
 	}
 }
