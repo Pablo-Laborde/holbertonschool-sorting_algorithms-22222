@@ -24,7 +24,7 @@ void insertion_sort_list(listint_t **list)
 				c = b->next;
 				while (a && (a->n > b->n))
 				{
-					change(a, b);
+					change(a, b, list);
 					print_list(*list);
 					a = b->prev;
 				}
@@ -42,7 +42,7 @@ void insertion_sort_list(listint_t **list)
  * @b: second element
  * Return: void
  */
-void change(listint_t *a, listint_t *b)
+void change(listint_t *a, listint_t *b, listint_t **list)
 {
 listint_t *n = NULL, *p = NULL;
 
@@ -54,6 +54,8 @@ a->next = n;
 a->prev = b;
 if (p)
 	p->next = b;
+else
+	*list = b;
 if (n)
 	n->prev = a;
 }
