@@ -1,8 +1,13 @@
 #include "sort.h"
 
+/**
+ * insertion_sort_list- sorts a list
+ * @list: list to sort
+ * Return: void
+ */
 void insertion_sort_list(listint_t **list)
 {
-	listint_t *a = NULL, *b = NULL, *c = NULL;
+	listint_t *a = NULL, *b = NULL;
 
 	if (list && *list && (*list)->next)
 	{
@@ -14,8 +19,13 @@ void insertion_sort_list(listint_t **list)
 				a = b;
 				b = b->next;
 			}
-			change(a, b);
-			b = a->next;
+			c = b->next;
+			while (a && (a->n > b->n))
+			{
+				change(a, b);
+				a = b->prev;
+			}
+			b = c;
 		} while (b);
 	}
 }
@@ -26,18 +36,18 @@ void insertion_sort_list(listint_t **list)
  * @b: second element
  * Return: void
  */
- void change(listint_t *a, listint_t *b)
- {
-	listint_t *n = NULL, *p = NULL;
+void change(listint_t *a, listint_t *b)
+{
+listint_t *n = NULL, *p = NULL;
 
-	n = b->next;
-	p = a->prev;
-	b->next = a;
-	b->prev = p;
-	a->next = n;
-	a->prev = b;
-	if (p)
-		p->next = b;
-	if (n)
-		n->prev = a;
- }
+n = b->next;
+p = a->prev;
+b->next = a;
+b->prev = p;
+a->next = n;
+a->prev = b;
+if (p)
+	p->next = b;
+if (n)
+	n->prev = a;
+}
