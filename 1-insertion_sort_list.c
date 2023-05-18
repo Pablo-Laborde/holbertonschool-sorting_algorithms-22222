@@ -9,7 +9,14 @@ void insertion_sort_list(listint_t **list)
 		a = *list;
 		b = a->next;
 		do {
-		} while (flag);
+			while (b && (b->n > a->n))
+			{
+				a = b;
+				b = b->next;
+			}
+			change(a, b);
+			b = a->next;
+		} while (b);
 	}
 }
 
