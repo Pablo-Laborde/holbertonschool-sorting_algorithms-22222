@@ -14,6 +14,7 @@ void selection_sort(int *array, size_t size)
 	if (size > 1)
 	{
 		for (pos = 0; pos < size; pos++)
+		{
 			for (i = pos; i < size; i++)
 			{
 				if (array[i] < array[pos])
@@ -23,5 +24,6 @@ void selection_sort(int *array, size_t size)
 				}
 			}
 			array[pos] = a;
+		}
 	}
 }
