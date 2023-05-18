@@ -7,26 +7,29 @@
  */
 void selection_sort(int *array, size_t size)
 {
-	int a;
-	size_t i, pos;
+	size_t i, j, min;
+	int tmp;
 
 	if (size < 2 || array == NULL)
 		return;
 
-	for (pos = 0; pos < size - 1; pos++)
+	for (i = 0; i < size - 1; i++)
 	{
-		a = array[pos];/* Assume the current element is the minimum */
+		min = i;
 
-		for (i = pos + 1; i < size; i++)/*find the min elemnt*/
+		/* Find the index of the minimum element */
+		for (j = i + 1; j < size; j++)
 		{
-			if (array[i] < a)
-			{
-				a = array[i];/*update the min element index*/
-				array[i] = array[pos];
-			}
+			if (array[j] < array[min])
+				min = j;
 		}
 
-		array[pos] = a;/*swap element whit the min*/
-		print_array(array, size);/*print the array*/
+		/* Swap the minimum element with the current element */
+		if (min != i)
+		{
+			tmp = array[i];
+			array[i] = array[min];
+			array[min] = tmp;
+		}
 	}
 }
