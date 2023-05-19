@@ -7,7 +7,7 @@
  */
 void quick_sort(int *array, size_t size)
 {
-  sorot_rev(array, size, 0, (size - 1));
+  sort_rev(array, size, 0, (size - 1));
 }
 
 /**
@@ -42,7 +42,7 @@ void sort_rev(int *array, size_t size, size_t min, size_t max)
         x = j;
         j = i;
         i = x;
-        print_array(array)
+        print_array(array, size);
       }
     }
     sort_rev(array, size, 0, (i - 1));
